@@ -7,6 +7,7 @@ public class baseControls : MonoBehaviour
     Rigidbody2D PCRigidbody;
     public float Speed = 10f;
     public float jumpHeight = 20;
+    bool canJump = true;
 
     void Start()
     {
@@ -19,13 +20,19 @@ public class baseControls : MonoBehaviour
         //Store user input as a movement vector
         Vector3 playerInput = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
 
-        if (Input.GetKeyDown(KeyCode.Space)) //add checks to only allow jump when on ground
+        if (Input.GetKeyDown(KeyCode.Space) && canJump == true)
         {
-            playerInput = new Vector3(playerInput.x, jumpHeight, 0);
+            playerInput = new Vector3(playerInput.x, jumpHeight, 0); //set this to be added over a time to make smoother
+            canJump = false;
         }
 
         //Apply the movement vector to the current position, which is
         //multiplied by deltaTime and speed for a smooth MovePosition
         PCRigidbody.MovePosition(transform.position + playerInput * Time.deltaTime * Speed);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        canJump = true;
     }
 }
