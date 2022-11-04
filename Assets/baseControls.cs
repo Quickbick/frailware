@@ -8,6 +8,7 @@ public class baseControls : MonoBehaviour
     public float Speed = 10f;
     public float jumpHeight = 20;
     bool canJump = true;
+    int jumpsecs = 0;
 
     void Start()
     {
@@ -22,8 +23,14 @@ public class baseControls : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && canJump == true)
         {
-            playerInput = new Vector3(playerInput.x, jumpHeight, 0); //set this to be added over a time to make smoother
+            jumpsecs = 2;
+            
             canJump = false;
+        }
+
+        if (jumpsecs > 0){
+            playerInput = new Vector3(playerInput.x, jumpHeight/2, 0);
+            jumpsecs--;
         }
 
         //Apply the movement vector to the current position, which is
