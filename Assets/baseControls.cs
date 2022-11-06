@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class baseControls : MonoBehaviour
 {
-    Rigidbody2D PCRigidbody;
+    public Animator Animator;
+    public Rigidbody2D PCRigidbody;
     public float Speed = 10f;
     public float jumpHeight = 20;
     bool canJump = true;
@@ -24,7 +25,8 @@ public class baseControls : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && canJump == true)
         {
             jumpsecs = 2;
-            
+            Animator.SetTrigger("StartJump");
+            Animator.ResetTrigger("HitsGround");
             canJump = false;
         }
 
@@ -32,14 +34,23 @@ public class baseControls : MonoBehaviour
             playerInput = new Vector3(playerInput.x, jumpHeight/2, 0);
             jumpsecs--;
         }
+        else
+        {
+            Animator.SetTrigger("StartFall");
+            Animator.ResetTrigger("StartJump");
+        }
 
         //Apply the movement vector to the current position, which is
         //multiplied by deltaTime and speed for a smooth MovePosition
         PCRigidbody.MovePosition(transform.position + playerInput * Time.deltaTime * Speed);
+        Animator.SetFloat("HSpeed", playerInput.x);
+        
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         canJump = true;
+        Animator.SetTrigger("HitsGround");
+        Animator.ResetTrigger("StartFall");
     }
 }
