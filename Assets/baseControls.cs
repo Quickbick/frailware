@@ -30,6 +30,11 @@ public class baseControls : MonoBehaviour
             canJump = false;
         }
 
+        if (Input.GetKeyDown(KeyCode.F) && canJump == true)
+        {
+            Animator.SetTrigger("StartAttack");
+        }
+
         if (jumpsecs > 0){
             playerInput = new Vector3(playerInput.x, jumpHeight/4, 0);
             jumpsecs--;
