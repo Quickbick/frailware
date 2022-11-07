@@ -7,7 +7,7 @@ public class baseControls : MonoBehaviour
     public Animator Animator;
     public Rigidbody2D PCRigidbody;
     public float Speed = 10f;
-    public float jumpHeight = 20;
+    public float jumpHeight = 40;
     bool canJump = true;
     int jumpsecs = 0;
 
@@ -24,14 +24,14 @@ public class baseControls : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && canJump == true)
         {
-            jumpsecs = 2;
+            jumpsecs = 4;
             Animator.SetTrigger("StartJump");
             Animator.ResetTrigger("HitsGround");
             canJump = false;
         }
 
         if (jumpsecs > 0){
-            playerInput = new Vector3(playerInput.x, jumpHeight/2, 0);
+            playerInput = new Vector3(playerInput.x, jumpHeight/4, 0);
             jumpsecs--;
         }
         else
