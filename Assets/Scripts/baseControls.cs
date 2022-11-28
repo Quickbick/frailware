@@ -38,6 +38,12 @@ public class baseControls : MonoBehaviour
             Animator.SetTrigger("StartAttack");
         }
 
+        //starts parry
+        if (Input.GetKeyDown(KeyCode.X) && grounded == true)
+        {
+            Animator.SetTrigger("StartParry");
+        }
+
         // processes jump
         if (jumpsecs > 0){
             playerInput = new Vector3(playerInput.x, jumpHeight/4, 0);

@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 185305760}
   - component: {fileID: 185305759}
   - component: {fileID: 185305758}
+  - component: {fileID: 185305761}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -321,6 +322,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &185305761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185305757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585e450df491d304aaea2e9810891500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1913465147}
+  offset: {x: 4, y: 1, z: -10}
 --- !u!1001 &281660084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1419,9 +1434,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2421224015065676076, guid: 28535ebeede450348b3d7cc820a82225, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840287232014088873, guid: 28535ebeede450348b3d7cc820a82225, type: 3}
+      propertyPath: m_Size.x
+      value: 35.334175
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840287232014088873, guid: 28535ebeede450348b3d7cc820a82225, type: 3}
+      propertyPath: m_Size.y
+      value: 38.878197
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840287232014088873, guid: 28535ebeede450348b3d7cc820a82225, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.31906128
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840287232014088873, guid: 28535ebeede450348b3d7cc820a82225, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.90750885
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840287232014088873, guid: 28535ebeede450348b3d7cc820a82225, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 34.44304
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840287232014088873, guid: 28535ebeede450348b3d7cc820a82225, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 38.149998
+      objectReference: {fileID: 0}
     - target: {fileID: 5840287232014088874, guid: 28535ebeede450348b3d7cc820a82225, type: 3}
       propertyPath: m_Name
       value: Protag
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840287232014088874, guid: 28535ebeede450348b3d7cc820a82225, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5840287232014088917, guid: 28535ebeede450348b3d7cc820a82225, type: 3}
       propertyPath: m_RootOrder
@@ -1526,6 +1573,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a41a01f7f0e64a246ae08ebabf90aa23, type: 3}
+--- !u!4 &1913465147 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5840287232014088917, guid: 28535ebeede450348b3d7cc820a82225, type: 3}
+  m_PrefabInstance: {fileID: 1743252973}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2066917027
 PrefabInstance:
   m_ObjectHideFlags: 0
