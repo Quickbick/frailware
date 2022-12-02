@@ -6,8 +6,8 @@ public class baseControls : MonoBehaviour
 {
     public Animator Animator;
     public Rigidbody2D PCRigidbody;
-    public float Speed = 10f;
-    public float jumpHeight = 40;
+    float Speed = 5f;
+    float jumpHeight = 40;
     bool grounded = true;
     int jumpsecs = 0;
     int direction = 1;
@@ -26,10 +26,10 @@ public class baseControls : MonoBehaviour
         // starts jump
         if (Input.GetKeyDown(KeyCode.Space) && grounded == true)
         {
-            jumpsecs = 4;
+            jumpsecs = 10;
             Animator.SetTrigger("StartJump");
-            Animator.ResetTrigger("HitsGround");
             grounded = false;
+            Animator.ResetTrigger("HitsGround");
         }
 
         //starts attack
@@ -46,7 +46,7 @@ public class baseControls : MonoBehaviour
 
         // processes jump
         if (jumpsecs > 0){
-            playerInput = new Vector3(playerInput.x, jumpHeight/4, 0);
+            playerInput = new Vector3(playerInput.x, jumpHeight/10, 0);
             jumpsecs--;
         }
         else
