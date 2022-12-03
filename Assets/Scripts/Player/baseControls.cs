@@ -33,7 +33,7 @@ public class baseControls : MonoBehaviour
         }
 
         //starts attack
-        if (Input.GetKeyDown(KeyCode.Z) && grounded == true)
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             Animator.SetTrigger("StartAttack");
         }
