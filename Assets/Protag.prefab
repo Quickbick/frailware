@@ -61,6 +61,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdaf8af844bec0148836feb2d27c1425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4757717958394822124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1647018445231400613}
+  - component: {fileID: 4791886961844914092}
+  m_Layer: 0
+  m_Name: ParryHit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1647018445231400613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4757717958394822124}
+  m_LocalRotation: {x: -0, y: -0, z: -0.6958177, w: 0.71821845}
+  m_LocalPosition: {x: 3.4259472, y: -13.440302, z: 0}
+  m_LocalScale: {x: 1.2018942, y: 1.2018942, z: 1.2018942}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5840287232014088917}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -88.185}
+--- !u!70 &4791886961844914092
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4757717958394822124}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -7.2314525, y: 1.699005}
+  m_Size: {x: 4.552329, y: 18.51371}
+  m_Direction: 0
 --- !u!1 &5840287232014088874
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +144,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7929692063663604022}
+  - {fileID: 1647018445231400613}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -145,7 +194,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 34.44304, y: 38.149998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -204,7 +253,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 34.44304, y: 38.149998}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 34.44304, y: 38.149998}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

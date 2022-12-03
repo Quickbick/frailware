@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Parry : MonoBehaviour
 {
-    public delegate void EventHandler(object sender);
-    public event EventHandler ObjectParried;
+    public GameObject player;
+    
 
     private void OnTriggerEnter2D(Collider2D other) {
+        baseControls playerControls = player.GetComponent<baseControls>();
         var hit = other.GetComponent<IElectric>();
 
         if (hit != null){
             hit.Parried();
-            ObjectParried.Invoke(this);
+            playerControls.HitParry();
         }
     }
 }

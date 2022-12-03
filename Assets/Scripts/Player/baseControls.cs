@@ -83,4 +83,8 @@ public class baseControls : MonoBehaviour
             stepped.Stepped();
         }
     }
+
+    public void HitParry(){
+
+    }
 }
