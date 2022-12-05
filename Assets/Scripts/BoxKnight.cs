@@ -8,10 +8,12 @@ public class BoxKnight : MonoBehaviour, IDamagable
     public Rigidbody2D Rigidbody;
     public float Speed = 20f;
     Vector3 input;
-    int currentDirection = -1;
+    int currentDirection = 1;
     int waitTime = 0;
     int actionTime = 0;
     int HP = 3;
+    bool dying =  false;
+    int dieTime = 75;
 
     // Start is called before the first frame update
     void Start()
@@ -22,13 +24,23 @@ public class BoxKnight : MonoBehaviour, IDamagable
     // Update is called once per frame
     void Update()
     {
-        if (waitTime == 0 && actionTime > 0){
-            // Moves the character according to existing vectors
-            Rigidbody.MovePosition(transform.position + input * Time.deltaTime * Speed);
+        if (dying){
+            if(dieTime > 0){
+                dieTime--;
+            }
+            else{
+                Destroy(this.gameObject);
+            }
         }
-        else if (waitTime > 0){
-            waitTime--;
-            Animator.SetInteger("Stun", waitTime);
+        else{
+            if (waitTime == 0 && actionTime > 0){
+                // Moves the character according to existing vectors
+                Rigidbody.MovePosition(transform.position + input * Time.deltaTime * Speed);
+            }
+            else if (waitTime > 0){
+                waitTime--;
+                Animator.SetInteger("Stun", waitTime);
+            }
         }
     }
 
@@ -39,7 +51,8 @@ public class BoxKnight : MonoBehaviour, IDamagable
             Animator.SetTrigger("Hit");
         }
         else{
-            Destroy(this.gameObject);
+            Animator.SetTrigger("Dying");
+            dying = true;
         }
         
     }
@@ -48,13 +61,14 @@ public class BoxKnight : MonoBehaviour, IDamagable
     {
         var other = col.collider.GetComponent<IGround>();
         var other2 = col.collider.GetComponent<baseControls>();
-        if (other2 != null){
+        if (other2 != null && dying == false){
             other2.Damage();
+            actionTime = 0;
         }
         else if (other == null){
             waitTime = 60;
             Animator.SetInteger("Stun", waitTime);
-            Rigidbody.MovePosition(transform.position + new Vector3(currentDirection * 2, 0 , 0));
+            Rigidbody.MovePosition(transform.position + (new Vector3(currentDirection*(-1), 0, 0)));
             if (currentDirection == 1){
                 gameObject.transform.Rotate(new Vector3(0,180,0));
                 currentDirection = -1;

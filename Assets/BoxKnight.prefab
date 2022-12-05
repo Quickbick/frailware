@@ -73,9 +73,9 @@ GameObject:
   - component: {fileID: 2212131810209438475}
   - component: {fileID: 4773302108931626048}
   - component: {fileID: 146527917725456239}
-  - component: {fileID: 6223621601235201088}
   - component: {fileID: 22100893554242732}
   - component: {fileID: 4220743098532721249}
+  - component: {fileID: 2004120594}
   m_Layer: 0
   m_Name: BoxKnight
   m_TagString: Untagged
@@ -172,22 +172,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &6223621601235201088
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8128320550650050129}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.03501232, y: -0.17858396}
-  m_Size: {x: 14.028134, y: 46.978806}
-  m_Direction: 0
 --- !u!95 &22100893554242732
 Animator:
   serializedVersion: 4
@@ -223,3 +207,29 @@ MonoBehaviour:
   Animator: {fileID: 22100893554242732}
   Rigidbody: {fileID: 146527917725456239}
   Speed: 10
+--- !u!61 &2004120594
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128320550650050129}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.146317, y: -0.17464256}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 15.526835, y: 47.889996}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 15.2339945, y: 47.248158}
+  m_EdgeRadius: 0

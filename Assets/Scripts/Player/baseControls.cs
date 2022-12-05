@@ -49,7 +49,7 @@ public class baseControls : MonoBehaviour
         }
         
         // starts jump
-        if (Input.GetKeyDown(KeyCode.Space) && grounded == true && dying == false)
+        if (/*(Input.GetKeyDown(KeyCode.Space)*/ Input.GetKeyDown(KeyCode.JoystickButton0) && grounded == true && dying == false)
         {
             jumpsecs = 10;
             Animator.SetTrigger("StartJump");
@@ -58,13 +58,13 @@ public class baseControls : MonoBehaviour
         }
 
         //starts attack
-        if (Input.GetKeyDown(KeyCode.Z) && dying == false)
+        if (/*Input.GetKeyDown(KeyCode.Z)*/ Input.GetKeyDown(KeyCode.JoystickButton1) && dying == false)
         {
             Animator.SetTrigger("StartAttack");
         }
 
         //starts parry
-        if (Input.GetKeyDown(KeyCode.X) && grounded == true && dying == false)
+        if (/*Input.GetKeyDown(KeyCode.X)*/ Input.GetKeyDown(KeyCode.JoystickButton3) && grounded == true && dying == false)
         {
             Animator.SetTrigger("StartParry");
         }
