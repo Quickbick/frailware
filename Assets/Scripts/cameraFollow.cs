@@ -6,9 +6,22 @@ public class cameraFollow : MonoBehaviour
 {
     public Transform player;
     public Vector3 offset;
-  
+    Vector3 currentPos;
+
+    void Start()
+    {
+        currentPos = new Vector3 (transform.position.x, transform.position.y + offset.y, transform.position.z);
+    }
+
     void Update () 
     {
-        transform.position = new Vector3 (player.position.x + offset.x, offset.y, offset.z); // Camera follows the player with specified offset position
+         // Camera follows the player with specified offset position
+        if (currentPos.y > player.position.y + 7 || currentPos.y < player.position.y - 7){
+            currentPos = new Vector3 (player.position.x + offset.x, player.position.y + offset.y, offset.z);
+        }
+        else {
+            currentPos = new Vector3 (player.position.x + offset.x, currentPos.y, offset.z);
+        }
+        transform.position = currentPos;
     }
 }

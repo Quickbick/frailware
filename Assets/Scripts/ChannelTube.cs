@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class ChannelTube : MonoBehaviour, IElectric
 {
+    public GameObject player;
     public Animator Animator;
-    bool power = true;
+    public bool power = true;
 
     public void Parried(){
         power = false;
         Animator.SetBool("Power", false);
+        baseControls playerControls = player.GetComponent<baseControls>();
+        playerControls.respawnPoint = new Vector3(transform.position.x, transform.position.y, 0);
     }
 }

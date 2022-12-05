@@ -6,11 +6,13 @@ public class baseControls : MonoBehaviour
 {
     public Animator Animator;
     public Rigidbody2D PCRigidbody;
-    float Speed = 5f;
-    float jumpHeight = 40;
+    public Vector3 respawnPoint;
+    float Speed = 7f;
+    float jumpHeight = 30f;
     bool grounded = true;
     int jumpsecs = 0;
     int direction = 1;
+    int HP = 2;
 
     void Start()
     {
@@ -85,6 +87,21 @@ public class baseControls : MonoBehaviour
     }
 
     public void HitParry(){
+        if (HP < 2){
+            HP++;
+        }
+    }
 
+    public void Damage(){
+        if (HP > 1){
+            HP--;
+        }
+        else{
+            HP--;
+        }
+    }
+
+    void Kill(){
+    
     }
 }
