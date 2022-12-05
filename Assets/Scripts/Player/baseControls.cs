@@ -13,6 +13,8 @@ public class baseControls : MonoBehaviour
     int jumpsecs = 0;
     int direction = 1;
     int HP = 2;
+    bool dying =  false;
+    int dieTime = 0;
 
     void Start()
     {
@@ -22,11 +24,32 @@ public class baseControls : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Store user input as a movement vector
-        Vector3 playerInput = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+        if (dying){
+            if (dieTime < 300){
+                dieTime++;
+            }
+            else{
+                grounded = true;
+                jumpsecs = 0;
+                HP = 2;
+                dying =  false;
+                dieTime = 0;
+                transform.position = respawnPoint;
+                Animator.SetTrigger("doneDying");
+            }
+        }
 
+        Vector3 playerInput;
+        if (dying == false){
+            //Store user input as a movement vector
+            playerInput = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+        }
+        else{
+            playerInput = new Vector3(0, 0, 0);
+        }
+        
         // starts jump
-        if (Input.GetKeyDown(KeyCode.Space) && grounded == true)
+        if (Input.GetKeyDown(KeyCode.Space) && grounded == true && dying == false)
         {
             jumpsecs = 10;
             Animator.SetTrigger("StartJump");
@@ -35,13 +58,13 @@ public class baseControls : MonoBehaviour
         }
 
         //starts attack
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && dying == false)
         {
             Animator.SetTrigger("StartAttack");
         }
 
         //starts parry
-        if (Input.GetKeyDown(KeyCode.X) && grounded == true)
+        if (Input.GetKeyDown(KeyCode.X) && grounded == true && dying == false)
         {
             Animator.SetTrigger("StartParry");
         }
@@ -96,12 +119,11 @@ public class baseControls : MonoBehaviour
         if (HP > 1){
             HP--;
         }
-        else{
+        else if (HP == 1){
             HP--;
+            Animator.SetTrigger("death");
+            dying = true;
         }
-    }
-
-    void Kill(){
-    
-    }
+    }        
+        
 }

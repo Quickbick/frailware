@@ -16,7 +16,7 @@ public class cameraFollow : MonoBehaviour
     void Update () 
     {
          // Camera follows the player with specified offset position
-        if (currentPos.y > player.position.y + 7 || currentPos.y < player.position.y - 7){
+        if (currentPos.y > player.position.y + 3 || currentPos.y < player.position.y - 3){
             currentPos = new Vector3 (player.position.x + offset.x, player.position.y + offset.y, offset.z);
         }
         else {

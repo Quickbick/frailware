@@ -71,4 +71,13 @@ public class BoxMimic : MonoBehaviour, IDamagable
     {
         Destroy(this.gameObject);
     }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        var other = col.collider.GetComponent<baseControls>();
+
+        if(other != null){
+            other.Damage();
+        }
+    }
 }

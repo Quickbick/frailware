@@ -12,6 +12,6 @@ public class ChannelTube : MonoBehaviour, IElectric
         power = false;
         Animator.SetBool("Power", false);
         baseControls playerControls = player.GetComponent<baseControls>();
-        playerControls.respawnPoint = new Vector3(transform.position.x, transform.position.y, 0);
+        playerControls.respawnPoint = new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z);
     }
 }
